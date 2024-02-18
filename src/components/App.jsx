@@ -12,11 +12,14 @@ function App() {
   const [filterQuote, setFilterQuote] = useState("");
 
   const handleFilterQuote = (filterValue) => {
-    setFilterQuote(filterValue);
+    setFilterQuote(filterValue.toLowerCase());
   };
 
-  const filteredQuote = friends.filter((friend) =>
-    friend.quote.includes(filterQuote)
+  const filteredQuote = friends.filter(
+    (friend) =>
+      filterQuote === "todos" ||
+      filterQuote === "" ||
+      friend.character.toLowerCase().includes(filterQuote)
   );
 
   return (
