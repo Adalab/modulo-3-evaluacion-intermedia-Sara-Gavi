@@ -1,11 +1,8 @@
-function Filters({ handleFilterQuote }) {
+import PropTypes from "prop-types";
+
+function Filters({ handleFilterQuote, handleCharacterSelect }) {
   const handleInput = (event) => {
     handleFilterQuote(event.currentTarget.value);
-  };
-
-  const handleCharacterSelect = (event) => {
-    const selectedCharacter = event.currentTarget.value;
-    handleFilterQuote(selectedCharacter === "all" ? "" : selectedCharacter);
   };
 
   return (
@@ -28,5 +25,10 @@ function Filters({ handleFilterQuote }) {
     </>
   );
 }
+
+Filters.propTypes = {
+  handleFilterQuote: PropTypes.func.isRequired,
+  handleCharacterSelect: PropTypes.func.isRequired,
+};
 
 export default Filters;
